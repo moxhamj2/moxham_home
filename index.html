@@ -9,11 +9,16 @@
 
 <h2>House Temperature</h2>
 
-<p>23.7 °C</p>
+<p id="temperature">Loading...</p>
 
-<h2>Tank Level</h2>
-
-<p>1.82 m</p>
+<script>
+fetch("temperature.json")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("temperature").innerHTML =
+        data.temperature + " °C";
+});
+</script>
 
 </body>
 </html>
